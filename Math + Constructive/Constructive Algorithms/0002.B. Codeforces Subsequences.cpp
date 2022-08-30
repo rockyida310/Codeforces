@@ -5,7 +5,26 @@ using namespace std;
 
 
 inline void solve(){
-   
+    int k;
+    cin>>k;
+    string pat = "codeforces";
+    int len = pat.length();
+
+    vector<int> cnt(len,1);
+
+    int prod = 1;
+    int x = 0;
+
+    while(prod < k){
+        prod /= cnt[x];
+        prod *= ++cnt[x];
+        x = (x+1) % len;
+    }
+
+    for(int i=0;i<cnt.size();++i){
+        while(cnt[i]--)
+            cout<<pat[i];
+    }
 
 }
 
